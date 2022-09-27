@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING///DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<bean id="triangle" class="org.kemi.javabrains.Triangle">
+		<property name="pointA" ref="pointAA" />
+		<property name="pointB" ref="abcd" />
+		<property name="pointC" ref="pointC" />
+	</bean>
+
+	<bean id="pointAA" class="org.kemi.javabrains.Point">
+		<qualifier value="circleRelated" /> 
+		
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="abcd" class="org.kemi.javabrains.Point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	
+	</bean>
+
+	<bean id="pointC" class="org.kemi.javabrains.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+
+	<!-- <bean id="circle" class="org.kemi.javabrains.Circle"> <property name="center" 
+		ref="pointAA" /> </bean> -->
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.properties" />
+	</bean>
+	<bean id="messageSource" class="org.springfeamework.context.support.ResourceBundleMessageSource">
+	<property name="basenames">
+	<list>
+	<value>mymessages</value>
+	</list>
+	</property>
+	</bean>
+
+	<context:annotation-config />
+	<context:component-scan
+		base-package="glg.springframework"></context:component-scan>
+	<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcess"/> -->
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcess" />
+</beans>
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+package arrays;
+
+import org.w3c.dom.html.HTMLIsIndexElement;
+private String name;
+private int[]marks;
+
+public class Student {
+	public Student(String name,int[]marks) {
+		this.name = name;
+		this.marks = marks;
+	}
+
+}
