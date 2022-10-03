@@ -12,9 +12,17 @@ public class fan {
 		this.make = make;
 		this.radius= radius;
 		this.color=color;}
-	/isOn
-	public void isOn(boolean isOn) {
-		this.isOn = isOn;
+	//isOn
+	public void switchOn() {
+		this.isOn = true;
+		setSpeed((byte)5);
+	}
+	public void switchOff() {
+		this.isOn = false;
+		setSpeed((byte)0);
+	}
+	public void setSpeed(byte speed) {
+		this.speed=speed;
 	}
 		//print the status
 		public String toString() {
